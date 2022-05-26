@@ -36,6 +36,7 @@ const getInfoApiPokemonHome = async function () {
                 id: e.data.id,
                 name: e.data.name,
                 image: e.data.sprites.other.dream_world.front_default,
+                attack: e.data.stats[1].base_stat,
                 types: e.data.types.map(e => e.type.name)
             }
         })
@@ -84,6 +85,12 @@ const getPokemonDb = async function () {
 }
 
 const infoT = async function () {
+    const infoApi = await getInfoApiPokemonHome();
+    const infoDb = await getPokemonDb()
+    return infoApi.concat(infoDb);
+}
+
+const infoTotalDteail = async function () {
     const infoApi = await getInfoApiPokemonDetail();
     const infoDb = await getPokemonDb()
     return infoApi.concat(infoDb);
@@ -91,5 +98,5 @@ const infoT = async function () {
 
 module.exports = {
     getTypePokemon, precargaDb, getInfoApiPokemonHome,
-    getPokemonDb, infoT, getInfoApiPokemonDetail
+    getPokemonDb, infoT, getInfoApiPokemonDetail,infoTotalDteail
 }

@@ -1,12 +1,12 @@
 const {Router} = require('express')
 const {Pokemon, Type} = require('../db')
 const router = Router()
-const {getInfoApiPokemonHome, infoT} = require('../services/infoApiDb')
+const { infoT, infoTotalDteail} = require('../services/infoApiDb')
 
 router.get('/', async (req, res) => {
     try {
         const name = req.query.name;
-        const infoApi = await getInfoApiPokemonHome();
+        const infoApi = await infoT();
         if(name){
             const filterByName = infoApi.filter(data => data.name === name)
             if (filterByName.length === 0){
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 
     try {
-        const infoDetail = await infoT()
+        const infoDetail = await infoTotalDteail()
         const {id} = req.params;
         if (id.length < 5) {
             const idNumber = parseInt(id)
@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
                 console.error(e)
             }
         }
-        res.status(200).send("receta creada correctamente")
+        res.status(200).send("pokemon creada correctamente")
 
     }catch (e) {
         console.error(e)
