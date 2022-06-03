@@ -1,0 +1,13 @@
+.div-filter-creat {
+    display: inline-block;
+    margin: 10px;
+}
+.div-filter-creat label{
+    font-family: cursive;
+    font-size: 20px;
+}
+.div-filter-creat select{
+    height: 30px;
+    border: 1px solid #14ffe9;
+    border-radius: 10px;
+}

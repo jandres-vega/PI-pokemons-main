@@ -2,8 +2,7 @@ const initialState = {
     allPokemonHome: [],
     copiaAllPokemon: [],
     pokemon: [],
-    allTypes: []
-
+    allTypes: [],
 }
 function rootReducer(state = initialState, action) {
 
@@ -26,6 +25,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 pokemon: action.payload
+            }
+
+        case 'GET_POKEMON_NAME':
+            return {
+                ...state,
+                allPokemonHome: action.payload
             }
 
         case 'ORDER_POKEMON':
@@ -76,6 +81,18 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allPokemonHome: filterApiDb
             }
+
+        case 'CLEAR_POKEMON':
+            return {
+                ...state,
+                allPokemonHome: []
+            }
+
+        case 'POST_POKEMON':
+            return {
+                ...state
+            }
+
         default:
             return state
     }

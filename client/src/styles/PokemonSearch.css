@@ -1,0 +1,14 @@
+.div-ser {
+    display: inline-block;
+}
+.div-ser button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.div-ser input {
+    border-radius: 10px;
+    height: 35px;
+}

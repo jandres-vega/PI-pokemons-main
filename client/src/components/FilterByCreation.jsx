@@ -1,9 +1,12 @@
 import React from 'react';
+import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {filterByDbApi} from '../redux/actions/actions'
+import "../styles/FilterByCreation.css"
 const FilterByCreation = () => {
 
     const dispatch = useDispatch()
+
 
     function handleCreation(e) {
         e.preventDefault()
@@ -11,9 +14,10 @@ const FilterByCreation = () => {
     }
 
     return (
-        <div>
+        <div className="div-filter-creat">
             <label>Filter By creation: </label>
             <select onChange={(e) => handleCreation(e)}>
+                <option value="all">All</option>
                 <option value="db">dataBase</option>
                 <option value="api">api</option>
             </select>

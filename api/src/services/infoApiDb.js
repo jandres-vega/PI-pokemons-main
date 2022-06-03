@@ -73,7 +73,8 @@ const getInfoApiPokemonDetail = async function () {
 }
 
 const getPokemonDb = async function () {
-    return await Pokemon.findAll({
+    var arrayDb = []
+    arrayDb = await Pokemon.findAll({
         include: {
             model: Type,
             attributes: ['name'],
@@ -82,6 +83,22 @@ const getPokemonDb = async function () {
             }
         }
     })
+    arrayDb = arrayDb.map((e) => {
+        return {
+            id: e.id,
+            name: e.name,
+            image: e.image,
+            life: e.life,
+            attack: e.attack,
+            defense: e.defense,
+            speed: e.speed,
+            height: e.height,
+            weight: e.weight,
+            createdDb: e.createdDb,
+            types: e.types.map((type) => type.name)
+        }
+    })
+    return arrayDb
 }
 
 const infoT = async function () {

@@ -1,0 +1,67 @@
+.div-header {
+    height: 180px;
+    border-style: solid;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, blue, white);
+    overflow: hidden
+}
+.div-title img {
+    width: 300px;
+}
+.div-title {
+    position: relative;
+    width: 300px;
+    left: 40%;
+}
+.div-button-create {
+    position: relative;
+    bottom: 80px;
+    left: 200px;
+    display: inline-block;
+}
+.div-button-create button {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.div-button-back {
+    position: relative;
+    display: inline-block;
+    bottom: 80px;
+    right: 100px;
+}
+.div-button-back button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background: #318aac;
+    color: #fff ;
+}
+.div-load {
+    position: relative;
+    display: inline-block;
+    left: 150px;
+    bottom: 80px;
+}
+.div-load button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.div-filter {
+    top: 10px;
+    display: inline-block;
+    position: relative;
+    left: 130px;
+}
+.div-search {
+    position: relative;
+    left: 80%;
+    bottom: 130px;
+}

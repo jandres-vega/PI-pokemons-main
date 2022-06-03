@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllTypes, filterByType} from '../redux/actions/actions'
-
+import "../styles/FilterByType.css"
 const FilterByType = () => {
 
     const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const FilterByType = () => {
     }
 
     return (
-        <div>
+        <div className="div-types">
             <label>Filter By Type: </label>
             <select onChange={(e) => handleTypes(e)}>
                 {

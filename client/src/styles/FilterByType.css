@@ -1,0 +1,13 @@
+.div-types {
+    display: inline-block;
+    margin: 10px;
+}
+.div-types label {
+    font-family: cursive;
+    font-size: 20px;
+}
+.div-types select {
+    height: 30px;
+    border: 1px solid #14ffe9;
+    border-radius: 10px;
+}
