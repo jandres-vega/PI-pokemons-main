@@ -1,7 +1,8 @@
 import React from 'react';
-import {useState} from 'react'
+
 import {useDispatch} from 'react-redux'
 import {filterByDbApi} from '../redux/actions/actions'
+// import {filterByDb, filterByApi} from "../redux/actions/actions"
 import "../styles/FilterByCreation.css"
 const FilterByCreation = () => {
 
@@ -10,9 +11,9 @@ const FilterByCreation = () => {
 
     function handleCreation(e) {
         e.preventDefault()
+
         dispatch(filterByDbApi(e.target.value))
     }
-
     return (
         <div className="div-filter-creat">
             <label>Filter By creation: </label>

@@ -1,6 +1,7 @@
 const initialState = {
     allPokemonHome: [],
     copiaAllPokemon: [],
+    DbApi: "all",
     pokemon: [],
     allTypes: [],
 }
@@ -12,7 +13,7 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allPokemonHome: action.payload,
-                copiaAllPokemon: action.payload
+                copiaAllPokemon: action.payload,
             }
 
         case 'GET_TYPES':
@@ -77,9 +78,11 @@ function rootReducer(state = initialState, action) {
             const filterApiDb = action.value === 'db' ?
                 state.copiaAllPokemon.filter((data) => data.createdDb):
                 state.copiaAllPokemon.filter((data) => !data.createdDb)
+
             return {
                 ...state,
-                allPokemonHome: filterApiDb
+                allPokemonHome: filterApiDb,
+                DbApi: action.value
             }
 
         case 'CLEAR_POKEMON':

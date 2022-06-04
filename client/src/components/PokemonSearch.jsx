@@ -6,11 +6,20 @@ import '../styles/PokemonSearch.css'
 const PokemonSearch = () => {
 
     const dispatch = useDispatch()
+
     const [poke, setPoke] = useState('')
 
-    function handleSubmit(e) {
+   async function handleSubmit(e) {
         e.preventDefault();
-        dispatch(searchPokemon(poke))
+        if (poke === '') {alert("ingrese un name pokemon")}
+
+        if (await dispatch(searchPokemon(poke)) === undefined){
+           alert("no se encuentra el pokemon")
+            setPoke('')
+        }else {
+            dispatch(searchPokemon(poke))
+            setPoke('')
+        }
     }
 
     function handleSearch(e) {

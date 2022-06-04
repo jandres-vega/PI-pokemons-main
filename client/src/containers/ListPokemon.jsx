@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllPokemon, orderAttack, orderPokemon} from '../redux/actions/actions'
+import {getAllPokemon, orderAttack, orderPokemon, filterByDbApi} from '../redux/actions/actions'
 import CardPokemon from "../components/CardPokemon";
 
 import {useState} from "react";
@@ -13,6 +13,7 @@ const ListPokemon = () => {
 
     const dispatch = useDispatch()
     const allPokemon = useSelector((state) => state.allPokemonHome)
+    const cache = useSelector(state => state.DbApi)
 
     const [currenPage, setCurrenPage] = useState(1);
     const [pokeByPage, setGameByPage] = useState(12);
@@ -24,7 +25,12 @@ const ListPokemon = () => {
 
 
     useEffect(() => {
-        dispatch(getAllPokemon())
+        if (cache === 'all') {
+            dispatch(getAllPokemon())
+        }else {
+            dispatch(filterByDbApi(cache))
+        }
+
     },[]);
 
 

@@ -32,17 +32,15 @@ export function getPokemon (id) {
 
 export function searchPokemon(name) {
     return async function (dispatch) {
-        const namePokemon = await axios.get(`http://localhost:3005/pokemons?name=${name}`);
-        return dispatch({
-            type: 'GET_POKEMON_NAME',
-            payload: namePokemon.data
-        })
-    }
-}
-
-export function clearPokemon() {
-    return {
-        type: 'CLEAR_POKEMON'
+        try {
+            const namePokemon = await axios.get(`http://localhost:3005/pokemons?name=${name}`);
+            return dispatch({
+                type: 'GET_POKEMON_NAME',
+                payload: namePokemon.data
+            })
+        }catch (e) {
+            console.error(e)
+        }
     }
 }
 
