@@ -4,7 +4,9 @@ import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllPokemon, orderAttack, orderPokemon} from '../redux/actions/actions'
 import CardPokemon from "../components/CardPokemon";
+
 import {useState} from "react";
+import '../styles/ListPokemon.css'
 import Paginado from "../components/Paginado";
 
 const ListPokemon = () => {
@@ -44,32 +46,31 @@ const ListPokemon = () => {
 
     return (
         <div>
-            <div>
-                <Paginado
+            <Paginado
                     pokeByPage={pokeByPage}
                     allPokemon={allPokemon.length}
                     paginado={paginado}
-                />
-            </div>
-            <div>
+            />
+            <div className="div-alpha">
                 <label>Order by Alphabet: </label>
                 <select onChange={(e) => handleOrder(e)}>
                     <option value="ascent">A - Z</option>
                     <option value="descent">Z - A</option>
                 </select>
             </div>
-
-            <div>
-                <label>Order Attack</label>
+            <div className="div-order">
+                <label>Order Attack: </label>
                 <select onChange={(e) => handleOrderAttack(e)}>
                     <option value="min-max">min - max</option>
                     <option value="max-min">max - min</option>
                 </select>
             </div>
+            <div className="div-home">
                 {
                     currenPokes?.map(data => (
                         <Link to={`/detail/${data.id}`}
-                            key={data.id}
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              key={data.id}
                         >
                             <CardPokemon
                                 key={data.id}
@@ -80,8 +81,7 @@ const ListPokemon = () => {
                         </Link>
                     ))
                 }
-
-
+            </div>
         </div>
     );
 };

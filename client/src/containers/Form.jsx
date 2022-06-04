@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import FilterByType from "../components/FilterByType";
 import {useForm} from "../hooks/useForm";
 import {getAllTypes} from '../redux/actions/actions'
+import "../styles/Form.css"
 
 const initialForm = {
     name: '',
@@ -31,9 +32,14 @@ const Form = () => {
 
     return (
         <div>
-            <form>
-                <div>
-                    <label>Name</label>
+            <div className="back-form">
+                <Link to="/home">
+                    <button>back Home</button>
+                </Link>
+            </div>
+            <form className="div-form">
+                <div className="div-name">
+                    <label>Name: </label>
                     <input
                         value={form.name}
                         name="name"
@@ -42,8 +48,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Image</label>
+                <div className="div-imagen">
+                    <label>Image: </label>
                     <input
                         value={form.image}
                         name="image"
@@ -52,8 +58,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Life</label>
+                <div className="div-life">
+                    <label>Life: </label>
                     <input
                         value={form.life}
                         name="life"
@@ -62,8 +68,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Attack</label>
+                <div className="div-attack">
+                    <label>Attack: </label>
                     <input
                         value={form.attack}
                         name="attack"
@@ -72,8 +78,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Defense</label>
+                <div className="div-defense">
+                    <label>Defense: </label>
                     <input
                         value={form.defense}
                         name="defense"
@@ -82,8 +88,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Speed</label>
+                <div className="div-speed">
+                    <label>Speed: </label>
                     <input
                         value={form.speed}
                         name="speed"
@@ -92,8 +98,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Height</label>
+                <div className="div-height">
+                    <label>Height: </label>
                     <input
                         value={form.height}
                         name="height"
@@ -102,8 +108,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
-                    <label>Weight</label>
+                <div className="div-weight">
+                    <label>Weight: </label>
                     <input
                         value={form.weight}
                         name="weight"
@@ -112,7 +118,8 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
-                <div>
+                <div className="div-types-form">
+                    <label>Types: </label>
                     <select onChange={(e) => handleSelect(e)}>
                         {
                             types?.map((data) => (
@@ -121,15 +128,10 @@ const Form = () => {
                         }
                     </select>
                 </div>
-                <div>
+                <div className="div-send">
                     <button onClick={(e) => handleSubmit(e)}>send</button>
                 </div>
             </form>
-            <div>
-                <Link to="/home">
-                    <button>Volver a Home</button>
-                </Link>
-            </div>
         </div>
     );
 };

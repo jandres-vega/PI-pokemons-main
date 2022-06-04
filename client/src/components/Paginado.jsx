@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/Paginado.css'
 const Paginado = ({ pokeByPage, allPokemon, paginado }) => {
 
     const pagNumber = [];
@@ -8,8 +8,8 @@ const Paginado = ({ pokeByPage, allPokemon, paginado }) => {
     }
 
     return (
-        <div>
-            <ul className="paginado">
+        <div className="div-paginado">
+            <ul>
                 {pagNumber &&
                     pagNumber.map((number) => (
                         <li className="number" key={number}>

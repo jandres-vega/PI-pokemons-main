@@ -1,0 +1,139 @@
+.div-form {
+    background-image: linear-gradient(to left, #318aac, blue);
+    border-radius: 20px;
+    display: inline-block;
+    height: 650px;
+    width: 550px;
+    position: relative;
+    left: 450px;
+    top: 20px;
+}
+label {
+    font-size: 20px;
+    font-family: "Arial Rounded MT Bold", serif;
+}
+input {
+    height: 30px;
+    width: 250px;
+    position: relative;
+    left: 30px;
+    border-top: 1px solid #14ffe9;
+    border-radius: 10px;
+}
+.div-name {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-name input{
+    position: relative;
+    left: 23px;
+}
+.div-imagen {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-imagen input {
+    position: relative;
+    left: 20px;
+}
+
+.div-life {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-life input {
+    position: relative;
+    left: 35px;
+}
+
+.div-attack {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-attack input {
+    position: relative;
+    left: 15px;
+}
+.div-defense {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-speed {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-speed input {
+    position: relative;
+    left: 23px;
+}
+.div-defense input {
+    position: relative;
+    left: 5px;
+}
+.div-height {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-height input{
+    position: relative;
+    left: 19px;
+}
+.div-weight {
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    margin: 15px;
+}
+.div-weight input{
+    position: relative;
+    left: 18px;
+}
+.div-send {
+    position: relative;
+    display: inline-block;
+    left: 400px;
+}
+.div-send button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.div-types-form {
+    display: inline-block;
+    position: relative;
+    right: 300px;
+    top: 60px;
+}
+.div-types-form select{
+    height: 30px;
+    border: 1px solid #14ffe9;
+    border-radius: 10px;
+}
+.back-form {
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+.back-form button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}

@@ -1,4 +1,30 @@
+.div-card {
+    background-image: linear-gradient(to left, wheat, blue);
+    display: inline-block;
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    box-shadow: 5px 2px 5px black;
+    position: relative;
+    border-radius: 10px;
+    left: 100px;
+    top: 10px;
+}
+.div-ul-types ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .div-img-card img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.div-pok h3 {
+    font-family: "Arial Narrow", serif;
+}
+.div-card:hover {
+    transform: scale(1.10)
 }
