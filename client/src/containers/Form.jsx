@@ -2,7 +2,6 @@ import React from 'react';
 import {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import FilterByType from "../components/FilterByType";
 import {useForm} from "../hooks/useForm";
 import {getAllTypes} from '../redux/actions/actions'
 import "../styles/Form.css"
@@ -19,6 +18,38 @@ const initialForm = {
     types: []
 }
 
+function validateForm(form) {
+    let errors = {}
+
+    const expressionUrl = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+    const expressionNumber = /^[0-9]*(\.?)[0-9]+$/;
+
+    if (!form.name){errors.name = "el campo name es requerido"}
+
+    if(!form.image) {errors.image = "el campo imagen es requerido"}
+    else if(!expressionUrl.test(form.image)) {errors.image = "el campo imagen debe ser una url"}
+
+    if(!form.life) {errors.life = "el campo life es requerido"}
+    else if(!expressionNumber.test(form.life)) {errors.life = "el campo life debe ser un numero"}
+
+    if(!form.attack) {errors.attack = "el campo attack es requerido"}
+    else if(!expressionNumber.test(form.attack)) {errors.attack = "el campo attack debe ser un numero"}
+
+    if(!form.defense) {errors.defense = "el campo defense es requerido"}
+    else if(!expressionNumber.test(form.defense)) {errors.defense = "el campo defense debe ser un numero"}
+
+    if(!form.speed) {errors.speed = "el campo speed es requerido"}
+    else if(!expressionNumber.test(form.speed)) {errors.speed = "el campo speed debe ser un numero"}
+
+    if(!form.height) {errors.height = "el campo height es requerido"}
+    else if(!expressionNumber.test(form.height)) {errors.height = "el campo height debe ser un numero"}
+
+    if(!form.weight) {errors.weight = "el campo weight es requerido"}
+    else if(!expressionNumber.test(form.weight)) {errors.weight = "el campo weight debe ser u numero"}
+
+    return errors
+}
+
 const Form = () => {
 
     const dispatch = useDispatch()
@@ -28,7 +59,8 @@ const Form = () => {
         dispatch(getAllTypes())
     },[])
 
-    const { form, handleChange, handleSubmit, handleSelect} = useForm(initialForm)
+    const { form, errors, handleChange, handleSubmit, handleSelect} = useForm(initialForm, validateForm)
+    console.log(form)
 
     return (
         <div>
@@ -48,6 +80,9 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
+                <div className="div-error-name">
+                    {errors.name && <p>{errors.name}</p>}
+                </div>
                 <div className="div-imagen">
                     <label>Image: </label>
                     <input
@@ -57,6 +92,9 @@ const Form = () => {
                         placeholder="add an image"
                         onChange={(e) => handleChange(e)}
                     />
+                </div>
+                <div className="div-error-image">
+                    {errors.image && <p>{errors.image}</p>}
                 </div>
                 <div className="div-life">
                     <label>Life: </label>
@@ -68,6 +106,9 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
+                <div className="div-error-life">
+                    {errors.life && <p>{errors.life}</p>}
+                </div>
                 <div className="div-attack">
                     <label>Attack: </label>
                     <input
@@ -77,6 +118,9 @@ const Form = () => {
                         placeholder="add attack"
                         onChange={(e) => handleChange(e)}
                     />
+                </div>
+                <div className="div-error-attack">
+                    {errors.attack && <p>{errors.attack}</p>}
                 </div>
                 <div className="div-defense">
                     <label>Defense: </label>
@@ -88,6 +132,9 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
+                <div className="div-error-defense">
+                    {errors.defense && <p>{errors.defense}</p>}
+                </div>
                 <div className="div-speed">
                     <label>Speed: </label>
                     <input
@@ -97,6 +144,9 @@ const Form = () => {
                         placeholder="add speed"
                         onChange={(e) => handleChange(e)}
                     />
+                </div>
+                <div className="div-error-speed">
+                    {errors.speed && <p>{errors.speed}</p>}
                 </div>
                 <div className="div-height">
                     <label>Height: </label>
@@ -108,6 +158,9 @@ const Form = () => {
                         onChange={(e) => handleChange(e)}
                     />
                 </div>
+                <div className="div-error-height">
+                    {errors.height && <p>{errors.height}</p>}
+                </div>
                 <div className="div-weight">
                     <label>Weight: </label>
                     <input
@@ -117,6 +170,9 @@ const Form = () => {
                         placeholder="add Weight"
                         onChange={(e) => handleChange(e)}
                     />
+                </div>
+                <div className="div-error-weight">
+                    {errors.weight && <p>{errors.weight}</p>}
                 </div>
                 <div className="div-types-form">
                     <label>Types: </label>
