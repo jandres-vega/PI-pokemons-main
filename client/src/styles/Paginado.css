@@ -13,6 +13,9 @@
 .div-paginado li:hover {
     transform: scale(1.15)
 }
+.div-paginado button {
+    display: inline-block;
+}
 .div-paginado ul {
     list-style: none;
     margin: 0;

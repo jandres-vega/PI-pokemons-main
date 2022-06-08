@@ -2,16 +2,13 @@ import React from 'react';
 
 import {useDispatch} from 'react-redux'
 import {filterByDbApi} from '../redux/actions/actions'
-// import {filterByDb, filterByApi} from "../redux/actions/actions"
 import "../styles/FilterByCreation.css"
 const FilterByCreation = () => {
 
     const dispatch = useDispatch()
 
-
     function handleCreation(e) {
         e.preventDefault()
-
         dispatch(filterByDbApi(e.target.value))
     }
     return (

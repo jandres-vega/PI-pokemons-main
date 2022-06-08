@@ -4,7 +4,6 @@ import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAllPokemon, orderAttack, orderPokemon, filterByDbApi} from '../redux/actions/actions'
 import CardPokemon from "../components/CardPokemon";
-
 import {useState} from "react";
 import '../styles/ListPokemon.css'
 import Paginado from "../components/Paginado";
@@ -14,7 +13,6 @@ const ListPokemon = () => {
     const dispatch = useDispatch()
     const allPokemon = useSelector((state) => state.allPokemonHome)
     const cache = useSelector(state => state.DbApi)
-
     const [currenPage, setCurrenPage] = useState(1);
     const [pokeByPage, setGameByPage] = useState(12);
     const indexLastPoke = currenPage * pokeByPage;
@@ -22,17 +20,14 @@ const ListPokemon = () => {
     const currenPokes = allPokemon.slice(indexPrimarPoke, indexLastPoke);
 
     const [order1, setOrder] = useState('')
-
-
     useEffect(() => {
         if (cache === 'all') {
             dispatch(getAllPokemon())
-        }else {
+        }
+        else {
             dispatch(filterByDbApi(cache))
         }
-
     },[]);
-
 
     function handleOrder (e) {
         e.preventDefault();
@@ -47,7 +42,7 @@ const ListPokemon = () => {
     }
 
     const paginado = (pageNumber) => {
-        setCurrenPage(pageNumber);
+        setCurrenPage(pageNumber)
     };
 
     return (

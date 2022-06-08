@@ -75,9 +75,10 @@ function rootReducer(state = initialState, action) {
             }
 
         case 'FILTER_BY_DB_API':
-            const filterApiDb = action.value === 'db' ?
-                state.copiaAllPokemon.filter((data) => data.createdDb):
-                state.copiaAllPokemon.filter((data) => !data.createdDb)
+            let filterApiDb = []
+            if (action.value === 'db') {filterApiDb = state.copiaAllPokemon.filter((data) => data.createdDb)}
+            else if(action.value === 'api'){filterApiDb = state.copiaAllPokemon.filter((data) => !data.createdDb)}
+            else{filterApiDb = state.copiaAllPokemon}
 
             return {
                 ...state,

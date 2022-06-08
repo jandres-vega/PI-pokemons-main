@@ -19,7 +19,8 @@ const FilterByType = () => {
     return (
         <div className="div-types">
             <label>Filter By Type: </label>
-            <select onChange={(e) => handleTypes(e)}>
+            <select onChange={(e) => handleTypes(e)} defaultValue="select">
+                <option value="select" disabled={true}  >select</option>
                 {
                     allTypes?.map(data => (
                         <option value={data.name} key={data.id}>{data.name}</option>

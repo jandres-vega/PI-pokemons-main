@@ -1,7 +1,7 @@
 const {Router} = require('express')
 const {Pokemon, Type} = require('../db')
 const router = Router()
-const { infoT, infoTotalDteail} = require('../services/infoApiDb')
+const { infoT, infoTotalDteail, getPokemonDb} = require('../services/infoApiDb')
 
 router.get('/', async (req, res) => {
     try {
