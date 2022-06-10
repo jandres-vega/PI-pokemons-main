@@ -15,12 +15,13 @@ const Detail = () => {
         dispatch(getPokemon(params.id))
     }, [])
 
-
     return (
         <div>
             <Link to="/home">
                 <div className="div-back-detail">
-                    <button>Back</button>
+                    <button onClick={(e) => clerarPokemon(e)}>Back</button>
+
+
                 </div>
             </Link>
             {

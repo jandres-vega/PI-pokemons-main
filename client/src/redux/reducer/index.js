@@ -22,10 +22,18 @@ function rootReducer(state = initialState, action) {
                 allTypes: action.payload
             }
 
-        case 'GET_POKEMON':
+        case 'CLEAR':
+            const clear = state.pokemon = []
             return {
                 ...state,
-                pokemon: action.payload
+                pokemon: clear
+            }
+
+        case 'GET_POKEMON':
+
+            return {
+                ...state,
+                pokemon: action.payload,
             }
 
         case 'GET_POKEMON_NAME':

@@ -3,13 +3,14 @@ import React from 'react';
 import {useDispatch} from 'react-redux'
 import {filterByDbApi} from '../redux/actions/actions'
 import "../styles/FilterByCreation.css"
-const FilterByCreation = () => {
+const FilterByCreation = ({setCurrenPage}) => {
 
     const dispatch = useDispatch()
 
     function handleCreation(e) {
         e.preventDefault()
         dispatch(filterByDbApi(e.target.value))
+        setCurrenPage(1)
     }
     return (
         <div className="div-filter-creat">

@@ -7,11 +7,14 @@ import CardPokemon from "../components/CardPokemon";
 import {useState} from "react";
 import '../styles/ListPokemon.css'
 import Paginado from "../components/Paginado";
+import FilterByType from "../components/FilterByType";
+import FilterByCreation from "../components/FilterByCreation";
 
 const ListPokemon = () => {
 
     const dispatch = useDispatch()
     const allPokemon = useSelector((state) => state.allPokemonHome)
+    console.log(allPokemon)
     const cache = useSelector(state => state.DbApi)
     const [currenPage, setCurrenPage] = useState(1);
     const [pokeByPage, setGameByPage] = useState(12);

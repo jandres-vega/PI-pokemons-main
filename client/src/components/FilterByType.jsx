@@ -1,19 +1,30 @@
 import React from 'react';
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllTypes, filterByType} from '../redux/actions/actions'
+import {getAllTypes, filterByType, getAllPokemon} from '../redux/actions/actions'
 import "../styles/FilterByType.css"
-const FilterByType = () => {
+const FilterByType = ({setCurrenPage}) => {
 
     const dispatch = useDispatch()
     const allTypes = useSelector((state) => state.allTypes)
+    const allPoke = useSelector(state => state.allPokemonHome)
     useEffect(() => {
         dispatch(getAllTypes())
+        dispatch(getAllPokemon())
     },[])
 
+    const filter = allPoke.map(data => {
+        return {
+            name: data.name,
+            types: data.types
+        }
+    })
     function handleTypes(e) {
         e.preventDefault()
+
         dispatch(filterByType(e.target.value))
+        setCurrenPage(1)
+
     }
 
     return (

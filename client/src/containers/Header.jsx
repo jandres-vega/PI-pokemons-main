@@ -32,6 +32,7 @@ const Header = () => {
             </div>
             <div className="div-search">
                 <PokemonSearch />
+
             </div>
         </div>
     );

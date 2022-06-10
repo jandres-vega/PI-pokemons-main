@@ -72,6 +72,12 @@ export function filterByType(value) {
     }
 }
 
+export function clear() {
+    return {
+        type: 'CLEAR',
+    }
+}
+
 export function filterByDbApi(value) {
     return {
         type: 'FILTER_BY_DB_API',
