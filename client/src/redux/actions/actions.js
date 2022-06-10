@@ -45,7 +45,6 @@ export function searchPokemon(name) {
 }
 
 export function creatPokemon (payload) {
-    console.log(payload)
     return async function() {
         return await axios.post('http://localhost:3005/pokemons', payload)
 

@@ -60,7 +60,6 @@ const Form = () => {
     },[])
 
     const { form, errors, handleChange, handleSubmit, handleSelect} = useForm(initialForm, validateForm)
-    console.log(form)
 
     return (
         <div>

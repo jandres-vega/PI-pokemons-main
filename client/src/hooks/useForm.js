@@ -1,6 +1,6 @@
-import {useState} from 'react'
-import {useDispatch} from "react-redux";
-import {creatPokemon} from '../redux/actions/actions'
+import {useState, useEffect} from 'react'
+import {useDispatch, useSelector} from "react-redux";
+import {creatPokemon, getAllPokemon} from '../redux/actions/actions'
 
 export const useForm = (initialForm, validate) => {
 
@@ -25,7 +25,6 @@ export const useForm = (initialForm, validate) => {
             })
         }
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors(validate(form))
